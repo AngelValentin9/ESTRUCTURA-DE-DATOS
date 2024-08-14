@@ -1,1 +1,48 @@
+# Datos extraídos del archivo
+
+datos = {
+    "Twitter": {
+        "Seguidores": [62404, 63232, 64149, 65410, 66355, 67496],
+        "Crecimiento": [863, 828, 917, 1261, 945, 1141],
+        "Me gusta": [1224, 1225, 1601, 1994, 2667, 2069]
+    },
+    "Facebook": {
+        "Seguidores": [152107, 156957, 160595, 165180, 170488, 178413],
+        "Crecimiento": [660, 485, 3638, 4585, 5308, 7925],
+        "Me gusta": [8771, 9002, 13556, 15022, 38953, 16487]
+    },
+    "YouTube": {
+        "Visualizaciones": [12226, 15605, 19602, 19452, 21805, 17344],
+        "Me gusta": [4, 15, 15, 8, 30, 33]
+    }
+}
+
+# Función para calcular la diferencia de seguidores en Twitter entre enero y junio
+def diferencia_seguidores_twitter():
+    return datos["Twitter"]["Seguidores"][5] - datos["Twitter"]["Seguidores"][0]
+
+# Función para calcular la diferencia de visualizaciones en YouTube entre dos meses
+def diferencia_visualizaciones_youtube(mes1, mes2):
+    return datos["YouTube"]["Visualizaciones"][mes2 - 1] - datos["YouTube"]["Visualizaciones"][mes1 - 1]
+
+# Función para calcular el promedio de crecimiento de Twitter y Facebook
+def promedio_crecimiento():
+    crecimiento_twitter = sum(datos["Twitter"]["Crecimiento"]) / 6
+    crecimiento_facebook = sum(datos["Facebook"]["Crecimiento"]) / 6
+    return (crecimiento_twitter + crecimiento_facebook) / 2
+
+# Función para calcular el promedio de "Me gusta" en YouTube, Twitter y Facebook
+def promedio_me_gusta():
+    me_gusta_youtube = sum(datos["YouTube"]["Me gusta"]) / 6
+    me_gusta_twitter = sum(datos["Twitter"]["Me gusta"]) / 6
+    me_gusta_facebook = sum(datos["Facebook"]["Me gusta"]) / 6
+    return (me_gusta_youtube + me_gusta_twitter + me_gusta_facebook) / 3
+
+# Ejecución de las funciones para mostrar los resultados
+print(f"Diferencia de seguidores en Twitter (enero a junio): {diferencia_seguidores_twitter()}")
+mes1 = int(input("Ingrese el número del primer mes (1=enero, 6=junio): "))
+mes2 = int(input("Ingrese el número del segundo mes (1=enero, 6=junio): "))
+print(f"Diferencia de visualizaciones en YouTube entre los meses {mes1} y {mes2}: {diferencia_visualizaciones_youtube(mes1, mes2)}")
+print(f"Promedio de crecimiento de Twitter y Facebook: {promedio_crecimiento()}")
+print(f"Promedio de 'Me gusta' en YouTube, Twitter y Facebook: {promedio_me_gusta()}")
 
